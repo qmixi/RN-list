@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FlatList, StyleSheet, View, ActivityIndicator } from 'react-native';
+import { FlatList, StyleSheet, View, ActivityIndicator, Text } from 'react-native';
 
 import { connect } from 'react-redux';
 
@@ -29,6 +29,7 @@ class DestinationsView extends Component {
 			<View style={styles.container}>
 				{!this.props.loading ? <FlatList data={this.props.destinations} renderItem={({ item }) => <DestinationCard data={item} />}
 				/> : <ActivityIndicator size="large" color="#46b1f6" />}
+				{!this.props.loading && this.props.destinations.length === 0 && <Text style={styles.emptyList}>Destinations list is empty.</Text>}
 			</View>
 		);
 	}
@@ -41,6 +42,11 @@ const styles = StyleSheet.create({
 		paddingTop: 22,
 		justifyContent: 'center',
 		backgroundColor: '#fafafa'
+	},
+	emptyList: {
+		padding: 10,
+		textAlign: 'center',
+		color: '#46b1f6'
 	}
 });
 
