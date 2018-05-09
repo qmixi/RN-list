@@ -1,5 +1,15 @@
 {
   "expo": {
-    "sdkVersion": "27.0.0"
+    "name": "Destinations List",
+    "icon": "./icon.png",
+    "version": "1.0.0",
+    "slug": "destinations-list-app",
+    "sdkVersion": "27.0.0",
+    "ios": {
+      "bundleIdentifier": "com.qmixi.destinationslist"
+    },
+    "android": {
+      "package": "com.qmixi.destinationslist"
+    }
   }
 }
