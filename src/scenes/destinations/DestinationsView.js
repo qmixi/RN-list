@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {FlatList, StyleSheet, View, Text, ActivityIndicator} from 'react-native';
+import {FlatList, StyleSheet, View, ActivityIndicator} from 'react-native';
 
 import {connect} from 'react-redux';
 
 import * as actions from '../../actions';
-import DestinationCard from "./components/DestinationCard";
+import DestinationCard from './components/DestinationCard';
 
 class DestinationsView extends Component {
 
@@ -27,9 +27,8 @@ class DestinationsView extends Component {
 				this.prepareData();
 				return (
 						<View style={styles.container}>
-								{ !this.props.loading && <FlatList data={this.props.destinations} renderItem={({item}) => <DestinationCard data={item} /> }
-								/> }
-								{ this.props.loading && <ActivityIndicator size="large" color="#46b1f6" /> }
+								{ !this.props.loading ? <FlatList data={this.props.destinations} renderItem={({item}) => <DestinationCard data={item} /> }
+								/> : <ActivityIndicator size="large" color="#46b1f6" /> }
 						</View>
 				);
 		}
